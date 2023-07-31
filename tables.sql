@@ -116,3 +116,30 @@ BEGIN
     RETURN TotalPrice;
 END //
 DELIMITER ;
+
+-- trigger so you can't insert products past their use by date
+DELIMITER //
+CREATE TRIGGER check_use_by_date
+BEFORE INSERT ON Table_larder_contents
+FOR EACH ROW
+BEGIN
+    IF NEW.UseBy < CURDATE() THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Use by date has already passed';
+    END IF;
+END //
+DELIMITER ;Table_larder_contents
+
+-- event scheduler for milk deliveries
+SET GLOBAL event_scheduler = ON;
+DELIMITER //
+CREATE EVENT MilkDelivery
+ON SCHEDULE EVERY 1 DAY
+STARTS TIMESTAMP(CURDATE() + INTERVAL 7 HOUR)
+DO
+BEGIN
+    UPDATE Table_fridge_contents
+    SET Quantity = 3 --
+    WHERE Item = 'milk';
+END //
+DELIMITER ;
