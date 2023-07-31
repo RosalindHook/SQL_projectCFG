@@ -40,8 +40,14 @@ Prepare an example query with group by and having to demonstrate how to extract 
 
 ![Screenshot of INNER JOIN query](https://github.com/RosalindHook/SQL_projectCFG/blob/main/Screenshot%202023-07-31%20at%2018.16.13.png)
 
-11. *STORED FUNCTION USED IN QUERY* I created a stored function in MySQL, which takes two input parameters: Quantity and PricePerItem. The total price is calculated by multiplying the quantity and the price per item. The function returns the calculated TotalPrice. This provides a convenient and reusable way to perform the same calculation across different queries without having to repeat the logic each time. I specified the characteristic 'DETERMINISTIC' in my stored function declaration, which was appropriate because the function will always return the same output for the same input.
+11. *STORED FUNCTION USED IN QUERY:* I created a stored function in MySQL, which takes two input parameters: Quantity and PricePerItem. The total price is calculated by multiplying the quantity and the price per item. The function returns the calculated TotalPrice. This provides a convenient and reusable way to perform the same calculation across different queries without having to repeat the logic each time. I specified the characteristic 'DETERMINISTIC' in my stored function declaration, which was appropriate because the function will always return the same output for the same input.
 
-13. I then applied this stored function in a query. For example, using the items in the table Table_fruit_basket, we can use the CalculateTotalPrice function to give information about the item, its quantity and cost per item, with a new column 'TotalPrice' showing the value of the stock in this part of the kitchen:
+12. I then applied this stored function in a query. For example, using the items in the table Table_fruit_basket, we can use the CalculateTotalPrice function to give information about the item, its quantity and cost per item, with a new column 'TotalPrice' showing the value of the stock in this part of the kitchen:
 
 ![Screenshot of STORED FUNCTION AND QUERY](https://github.com/RosalindHook/SQL_projectCFG/blob/main/Screenshot%202023-07-31%20at%2019.39.01.png) 
+
+13. *QUERY WITH SUBQUERY:* I wanted to find all the items in a particular part of the kitchen (in the example below, this is the freezer) that have a quantity greater than the average quantity of all items in the freezer. This allows you to identify the items in the kitchen that have an above-average quantity, which is useful as an inventory management tool and could be a way of identifying items that may need to be used up first.
+
+14. In this query, we have a subquery that calculates the average quantity of all items in the freezer table. The main query then selects the Item, Quantity, PricePerItem, and UseBy columns from the freezer table and uses a WHERE clause to filter the results. The WHERE clause compares the Quantity of each item with the average quantity obtained from the subquery. Only items with a quantity greater than the average will be included in the result set.
+
+![Screenshot of QUERY WITH SUBQUERY](https://github.com/RosalindHook/SQL_projectCFG/blob/main/Screenshot%202023-07-31%20at%2020.04.01.png)
