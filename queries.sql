@@ -12,3 +12,7 @@ SELECT Table_fruit_basket.Item, Table_fruit_basket.Quantity, Table_fruit_basket.
 FROM Table_fruit_basket
 INNER JOIN Table_fridge_contents
 ON Table_fruit_basket.Item = Table_fridge_contents.Item;
+
+--Query applying stored function (see tables.sql) to find total cost of items in Table_fruit_basket (quantity * price per item)
+SELECT Item, Quantity, PricePerItem, stock_kitchen.TotalPrice(Quantity, PricePerItem) AS TotalPrice
+FROM Table_fruit_basket;
