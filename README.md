@@ -34,6 +34,9 @@ Prepare an example query with group by and having to demonstrate how to extract 
   
 9. The LEFT JOIN returns all the rows from the left table (Table_fruit_basket) and the matching rows from the right table (Table_fridge_contents). If there is no match in the right table for a row in the left table, the result will still include that row, but the columns from the right table will contain NULL values (see photo below).
 
-![Screenshot of LEFT JOIN query] (https://github.com/RosalindHook/SQL_projectCFG/Screenshot 2023-07-31 at 18.12.28.png)   screen shot
+![Screenshot of LEFT JOIN query] (https://github.com/RosalindHook/SQL_projectCFG/blob/main/Screenshot%202023-07-31%20at%2018.12.28.png)
 
-10. While you could extrapolate the information about fruit to be kept in the fridge from this, a more effective way of doing this was using an INNER JOIN. I modified my query to filter the results based on specific conditions. In this case, I wanted to show only the fruits that are present in both tables (Table_fruit_basket and Table_fridge_contents). This INNER JOIN will only return the rows where there is a match for the "Item" column in both tables, effectively showing the fruits that are present in both the fruit basket and the fridge. These are the fruits that need to be kept in the fridge. The query will not show the fruits that are only in the fruit basket or only in the fridge.
+10. While you could extrapolate the information about fruit to be kept in the fridge from this, a more effective way of doing this was using an INNER JOIN. I modified my query to filter the results based on specific conditions. In this case, I wanted to show only the fruits that are present in both tables (Table_fruit_basket and Table_fridge_contents). This INNER JOIN will only return the rows where there is a match for the "Item" column in both tables, effectively showing the fruits that are present in both the fruit basket and the fridge. These are the fruits that need to be kept in the fridge. The query will not show the fruits that are only in the fruit basket or only in the fridge. I also ensured that information was available about the quantity, price, and use-by date of the fruits that need to be kept in the fridge.
+
+![Screenshot of INNER JOIN query]  (https://github.com/RosalindHook/SQL_projectCFG/blob/main/Screenshot%202023-07-31%20at%2018.16.13.png)
+
