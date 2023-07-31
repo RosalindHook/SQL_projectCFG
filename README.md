@@ -48,6 +48,6 @@ Prepare an example query with group by and having to demonstrate how to extract 
 
 13. *QUERY WITH SUBQUERY:* I wanted to find all the items in a particular part of the kitchen (in the example below, this is the freezer) that have a quantity greater than the average quantity of all items in the freezer. This allows you to identify the items in the kitchen that have an above-average quantity, which is useful as an inventory management tool and could be a way of identifying items that may need to be used up first.
 
-14. In this query, we have a subquery that calculates the average quantity of all items in the freezer table. The main query then selects the Item, Quantity, PricePerItem, and UseBy columns from the freezer table and uses a WHERE clause to filter the results. The WHERE clause compares the Quantity of each item with the average quantity obtained from the subquery. Only items with a quantity greater than the average will be included in the result set.
+14. In this query, I have a subquery that calculates the average quantity of all items in the freezer table. The main query then selects the Item, Quantity, PricePerItem, and UseBy columns from the freezer table and uses a WHERE clause to filter the results. The WHERE clause compares the Quantity of each item with the average quantity obtained from the subquery. Only items with a quantity greater than the average will be included in the result set.
 
 ![Screenshot of QUERY WITH SUBQUERY](https://github.com/RosalindHook/SQL_projectCFG/blob/main/Screenshot%202023-07-31%20at%2020.04.01.png)
