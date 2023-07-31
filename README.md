@@ -53,3 +53,13 @@ Prepare an example query with group by and having to demonstrate how to extract 
 14. In this query, I have a subquery that calculates the average quantity of all items in the freezer table. The main query then selects the Item, Quantity, PricePerItem, and UseBy columns from the freezer table and uses a WHERE clause to filter the results. The WHERE clause compares the Quantity of each item with the average quantity obtained from the subquery. Only items with a quantity greater than the average will be included in the result set.
 
 ![Screenshot of QUERY WITH SUBQUERY](https://github.com/RosalindHook/SQL_projectCFG/blob/main/Screenshot%202023-07-31%20at%2020.04.01.png)
+
+## Advanced options
+
+15. *TRIGGER:* I created a trigger around "use by" dates, associating this with the table Table_larder_contents. This was intended to prevent a user adding new stock to the larder which was past its use by date. My code checks the "UseBy" column of the Table_larder_contents before each insert. If the "UseBy" date is in the past (i.e. less than the current date), it will raise an error and prevent the insertion. This trigger remains automatically associated with the specified table, and it will remain in the database until explicitly dropped or modified.
+
+16. *EVENT:* I also created a daily update to update the quantity of a specific item in the Table_fridge_contents at a specific time. Before running this event, I enabled the event scheduler in MySQL: SET GLOBAL event_scheduler = ON;  
+   
+17. After enabling the event scheduler, the event will run at the specified time (7am) - the item "milk" will be updated to 3 at 7:00 AM daily.
+
+![Screenshot of EVENT SCHEDULER](https://github.com/RosalindHook/SQL_projectCFG/blob/main/Screenshot%202023-07-31%20at%2021.06.42.png)
