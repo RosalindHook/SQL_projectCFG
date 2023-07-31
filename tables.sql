@@ -102,5 +102,17 @@ CREATE TABLE meal_plan (
 INSERT INTO meal_plan (MealID, MealName, FruitBasketID, FridgeContentsID, FreezerContentsID, LarderContentsID, VegCupboardContentsID)
 VALUES (1, 'Breakfast Cereal', 5, 1, NULL, 1, NULL), -- banana, milk and cornflakes 
 (2, 'Soup', NULL, 2, 5, NULL, 1), -- cheese, frozen onions and carrots
-(3, 'Pasta surprise', NULL, 5, 5, 6, 1), -- beef mince, frozen onions, pasta sauce and carrots
-(4, 'Pasta surprise', NULL, NULL, NULL, 8, NULL); -- penne
+(3, 'Pasta surprise', NULL, 5, 5, 8, 1), -- beef mince, frozen onions, penne and carrots
+
+
+--Created function that can be applied to a query (see queries.sql) to calculate total price of stock in a table e.g. price per item * quantity
+DELIMITER //
+CREATE FUNCTION stock_kitchen.TotalPrice(Quantity INT, PricePerItem DECIMAL(65, 2))
+RETURNS DECIMAL(65, 2)
+DETERMINISTIC
+BEGIN
+    DECLARE TotalPrice DECIMAL(65, 2);
+    SET TotalPrice = Quantity * PricePerItem;
+    RETURN TotalPrice;
+END //
+DELIMITER ;
